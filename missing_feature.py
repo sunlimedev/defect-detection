@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 1) Load the image
-image = cv2.imread("pres_missing_feature.jpg")
+image = cv2.imread("pres_good.jpg")
 
 if image is None:
     raise FileNotFoundError("image.jpg not found in the current directory.")
@@ -54,26 +54,26 @@ image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 highlight_rgb = cv2.cvtColor(highlight_image, cv2.COLOR_BGR2RGB)
 
 # Display results
-plt.figure(figsize=(15, 5))
+plt.figure(figsize=(21, 6))
 
 plt.subplot(1, 4, 1)
 plt.imshow(image_rgb)
-plt.title("\nOriginal Image")
+plt.title("Original Image")
 plt.axis("off")
 
 plt.subplot(1, 4, 2)
 plt.imshow(binarized, cmap="gray")
-plt.title("\nBinarized Image")
+plt.title("Binarized Image")
 plt.axis("off")
 
 plt.subplot(1, 4, 3)
 plt.imshow(eroded_binary, cmap="gray")
-plt.title("\nEroded Binarized Image")
+plt.title("Eroded Binarized Image")
 plt.axis("off")
 
 plt.subplot(1, 4, 4)
 plt.imshow(highlight_rgb)
-plt.title("\nSelect Locations Highlighted")
+plt.title("Select Locations Highlighted")
 plt.axis("off")
 
 plt.tight_layout()

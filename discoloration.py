@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 1) Load the image
-image = cv2.imread("pres_discoloration.jpg")
+image = cv2.imread("pres_good.jpg")
 
 if image is None:
     raise FileNotFoundError("image.jpg not found in the current directory.")
@@ -34,26 +34,26 @@ overlay_image = image_rgb.copy()
 overlay_image[mask > 0] = [0, 0, 255]
 
 # 6) Display results
-plt.figure(figsize=(20, 5))
+plt.figure(figsize=(21, 6))
 
 plt.subplot(1, 4, 1)
 plt.imshow(image_rgb)
-plt.title("\nOriginal Image")
+plt.title("Original Image")
 plt.axis("off")
 
 plt.subplot(1, 4, 2)
 plt.imshow(blue_only)
-plt.title("\nBlue Pixels Extracted")
+plt.title("Blue Pixels Extracted")
 plt.axis("off")
 
 plt.subplot(1, 4, 3)
 plt.imshow(mask, cmap="gray")
-plt.title(f"\nBlue Pixel Mask -- {percentage_blue:.2f}% Blue")
+plt.title(f"Blue Pixel Mask -- {percentage_blue:.2f}% Blue")
 plt.axis("off")
 
 plt.subplot(1, 4, 4)
 plt.imshow(overlay_image)
-plt.title("\nBlue Pixels Highlighted (Pure Blue)")
+plt.title("Blue Pixels Highlighted (Pure Blue)")
 plt.axis("off")
 
 plt.tight_layout()
